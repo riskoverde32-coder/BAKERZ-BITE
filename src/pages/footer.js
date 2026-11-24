@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import {useState} from "react";
 import "../App.css";
+import Gelocation from "../gelocation";
 
 function Footer({ setActivePage }) {
 
@@ -98,7 +99,7 @@ function Footer({ setActivePage }) {
 
         <p>Freshly baked. Always delicious.</p>
       </div>
-
+      <Gelocation />
     </footer>
   );
 }

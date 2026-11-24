@@ -1,0 +1,141 @@
+
+.location-ticker {
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 25px;
+  box-sizing: border-box;
+
+  background: #2B1913;
+  color: #FFF1DD;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  overflow: hidden;
+}
+
+/* Moving text container */
+
+.ticker-window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerMove 35s linear infinite;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-right: 25px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFF1DD;
+}
+
+.ticker-separator {
+  color: #F4A340;
+  font-size: 15px;
+}
+
+/* Location button */
+
+.location-button {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 20px;
+  padding: 7px 15px;
+
+  background: #F4A340;
+  color: #2B1913;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.location-button:hover {
+  background: #FFF1DD;
+}
+
+.location-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Animation */
+
+@keyframes tickerMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-window:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Accessible status message */
+
+.ticker-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .location-ticker {
+    height: 42px;
+    min-height: 42px;
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .ticker-group {
+    gap: 16px;
+    padding-right: 16px;
+  }
+
+  .ticker-item {
+    font-size: 10px;
+  }
+
+  .location-button {
+    padding: 6px 10px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}

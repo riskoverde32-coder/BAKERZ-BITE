@@ -330,9 +330,7 @@
   }
 }
 
-/* =================================
-   ADD TO CART BUTTONS
-================================= */
+/* ADD TO CART BUTTONS */
 
 .add-to-cart-button,
 .product-add-to-cart {
@@ -365,9 +363,6 @@
   margin: 0 0 20px;
 }
 
-/* =================================
-   FLOATING CART ICON
-================================= */
 
 .floating-cart-button {
   position: fixed;
@@ -424,7 +419,6 @@
   background-color: rgba(0, 0, 0, 0.55);
 }
 
-/* CART DRAWER */
 
 .cart-drawer {
   position: fixed;
