@@ -1,0 +1,21 @@
+{
+  "products": [
+    { "name": "Overall experience", "img": "images/bakery-shop.jpg" },
+    { "name": "Chocolate Fudge Cake", "img": "images/chocolate-cake.jpg" },
+    { "name": "Butter Croissant", "img": "images/croissants.jpg" },
+    { "name": "Choc Chip Cookies", "img": "images/cookies.jpg" },
+    { "name": "Mint Cupcakes", "img": "images/cupcakes.jpg" },
+    { "name": "Berry Cream Cake", "img": "images/berry-cake.jpg" },
+    { "name": "Fruit Tarts", "img": "images/fruit-tarts.jpg" },
+    { "name": "Tiramisu Slice", "img": "images/tiramisu.jpg" },
+    { "name": "Sourdough Loaf", "img": "images/sourdough-loaf.jpg" }
+  ],
+  "reviews": [
+    { "id": 1, "name": "Sara K.", "product": "Chocolate Fudge Cake", "rating": 5, "comment": "Ordered this for my daughter's birthday. Rich, moist and not too sweet. Everyone asked where it came from!", "date": "2026-11-18" },
+    { "id": 2, "name": "Omar H.", "product": "Butter Croissant", "rating": 5, "comment": "Flaky, buttery and still warm in the morning. Best croissant in town, hands down.", "date": "2026-11-15" },
+    { "id": 3, "name": "Priya N.", "product": "Mint Cupcakes", "rating": 4, "comment": "Lovely frosting and very pretty. I'd love a slightly bigger size, but the taste is spot on.", "date": "2026-11-10" },
+    { "id": 4, "name": "Daniel R.", "product": "Overall experience", "rating": 5, "comment": "Friendly staff, cosy café and the smell when you walk in is unbeatable. Where smiles are served daily indeed.", "date": "2026-11-06" },
+    { "id": 5, "name": "Lina M.", "product": "Choc Chip Cookies", "rating": 4, "comment": "Crispy edges, gooey centre. A bit pricey for a box of six, but worth it.", "date": "2026-10-30" },
+    { "id": 6, "name": "James T.", "product": "Sourdough Loaf", "rating": 3, "comment": "Great crust and flavour. It sold out before noon though, so get there early.", "date": "2026-10-24" }
+  ]
+}

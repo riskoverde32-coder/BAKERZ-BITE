@@ -1,195 +1,64 @@
+import '../bb-pages.css'
+import Hero from '../component/Hero'
+import ContactCards from '../component/ContactCards'
+import info from '../data/info.json'
 
-import "../about.css";
-
-const productCategories = [
-  "Cakes",
-  "Pastries",
-  "Cookies",
-  "Pies",
-  "Desserts",
-  "Handcrafted Beverages",
-];
-
-function About({ setActivePage }) {
+export default function About({ setActivePage }) {
   return (
-    <section className="about-page">
+    <section id="about" className="bb">
+      <Hero
+        title="About Us"
+        motto="Where smiles are served daily."
+        image="images/hero-bread.jpg"
+      />
 
-      <section className="about-hero">
-        <span>ABOUT BAKERZ BITE</span>
-
-        <h1>
-          A passion for baking.
-          <br />
-          A love for sharing.
-        </h1>
-
-        <p>
-          Bringing freshness, quality and a little sweetness
-          into everyday moments.
-        </p>
-
-        <button onClick={() => setActivePage("Menu")}>
-          Explore Our Menu
-        </button>
-      </section>
-
-
-      <section className="about-story">
-
-        <div className="about-story-image">
-          <img
-            src="/images/about.png"
-            alt="The welcoming Bakerz Bite bakery and café"
-          />
-        </div>
-
-        <div className="about-story-content">
-          <span className="about-label">OUR STORY</span>
-
-          <h2>
-            More than just
-            <span> a bakery.</span>
-          </h2>
-
-          <p>
-            At Bakerz Bite, baking is about more than making
-            delicious treats. It is about bringing people
-            together and making everyday moments special.
-          </p>
-
-          <p>
-            As a bakery and café, we offer a wide selection
-            of baked goods, from artisan pastries and
-            gourmet cakes to delightful desserts and
-            handcrafted beverages.
-          </p>
-
-          <p>
-            Every day, we aim to give our customers
-            something fresh, something delicious and
-            something worth coming back for.
-          </p>
-        </div>
-
-      </section>
-
-
-      <section className="about-quality">
-
-        <div className="about-quality-content">
-          <span className="about-label">OUR COMMITMENT</span>
-
-          <h2>
-            Good ingredients.
-            <br />
-            Great taste.
-          </h2>
-
-          <p>
-            We believe that great baked goods begin with
-            carefully selected ingredients.
-          </p>
-
-          <p>
-            That is why our baking philosophy emphasizes
-            real butter, cream and unbleached flour.
-            We value freshness and quality in everything
-            we prepare.
-          </p>
-        </div>
-
-        <div className="about-ingredients">
+      <div className="bb-container pad">
+        <div className="split">
           <div>
-            <span>1</span>
-            <h3>Real Butter</h3>
+            <h2>Our story</h2>
+            <p>
+              Since it first opened, Bakerz Bite has grown into a well-known bakery and café. We bake
+              everything in-store, every day, and we make it from the best ingredients we can find.
+            </p>
+            <p>
+              Today we offer more than 300 kinds of baked goods: artisan pastries, gourmet cakes and
+              desserts, and handcrafted drinks. We keep trying new recipes and opening in new places,
+              but the idea stays the same. Fresh food, made properly.
+            </p>
           </div>
-
-          <div>
-            <span>2</span>
-            <h3>Fresh Cream</h3>
-          </div>
-
-          <div>
-            <span>3</span>
-            <h3>Unbleached Flour</h3>
-          </div>
+          <img src="images/bakery-display.jpg" alt="Fresh pastries in the Bakerz Bite display case" />
         </div>
 
-      </section>
-
-
-      <section className="about-products">
-
-        <div className="about-products-heading">
-          <span className="about-label">A LITTLE SOMETHING FOR EVERYONE</span>
-
-          <h2>Made for every craving.</h2>
-
-          <p>
-            From morning favourites to special occasion
-            treats, there is always something delicious
-            waiting for you.
-          </p>
+        <div className="split reverse">
+          <div>
+            <h2>What goes into it</h2>
+            <p>
+              We only use real butter, cream and unbleached flour. No shortcuts and no cheap substitutes.
+            </p>
+            <p>
+              We think of our customers as family, so we won't put anything in our food that we
+              wouldn't give to our own.
+            </p>
+          </div>
+          <img src="images/kneading-dough.jpg" alt="Baker kneading dough by hand" />
         </div>
 
-        <div className="about-category-grid">
-          {productCategories.map((category, index) => (
-            <div className="about-category" key={category}>
-              <span>0{index + 1}</span>
-              <h3>{category}</h3>
-            </div>
+        <h2>From our ovens</h2>
+        <div className="photo-grid">
+          {info.kitchen.map((k) => (
+            <figure key={k.label}>
+              <img src={k.img} alt={k.alt} loading="lazy" />
+              <figcaption>{k.label}</figcaption>
+            </figure>
           ))}
         </div>
 
-        <button
-          className="about-menu-button"
-          onClick={() => setActivePage("Menu")}
-        >
-          Discover Our Menu
+        <h2>Find us</h2>
+        <ContactCards />
+        <button type="button" className="btn" onClick={() => setActivePage('Contact')}>
+          Send us a message
         </button>
-
-      </section>
-
-
-      <section className="about-promise">
-
-        <span>OUR PROMISE TO YOU</span>
-
-        <h2>
-          We treat our customers
-          <br />
-          like family.
-        </h2>
-
-        <p>
-          We are dedicated to delivering quality products
-          and making thoughtful choices about the ingredients
-          we use. We believe in serving our customers with
-          the same care we would give our own family.
-        </p>
-
-        <div className="about-promise-quote">
-          "Where Smiles are served daily."
-        </div>
-
-      </section>
-
-      <section className="about-bottom">
-
-        <h2>There's always room for something sweet.</h2>
-
-        <p>
-          Visit our menu and find your next favourite treat.
-        </p>
-
-        <button onClick={() => setActivePage("Menu")}>
-          Explore Our Products
-        </button>
-
-      </section>
-
+      </div>
     </section>
-  );
+  )
 }
-
-export default About;

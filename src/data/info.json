@@ -1,0 +1,17 @@
+{
+  "email": "BakerzBites@email.com",
+  "phone": "+1 (123) 456-7890",
+  "address": "24 Butter Lane, Sweet Town",
+  "hours": [
+    { "days": "Monday – Saturday", "time": "7 AM – 8 PM" },
+    { "days": "Sunday", "time": "8 AM – 5 PM" }
+  ],
+  "kitchen": [
+    { "img": "images/chocolate-cake.jpg", "label": "Cakes", "alt": "Chocolate fudge cake" },
+    { "img": "images/hero-bread.jpg", "label": "Breads", "alt": "Rustic breads" },
+    { "img": "images/cookies.jpg", "label": "Cookies", "alt": "Chocolate chip cookies" },
+    { "img": "images/fruit-tarts.jpg", "label": "Pastries", "alt": "Fruit tarts" },
+    { "img": "images/cupcakes.jpg", "label": "Cupcakes", "alt": "Mint cupcakes" },
+    { "img": "images/tiramisu.jpg", "label": "Desserts", "alt": "Layered tiramisu slice" }
+  ]
+}
