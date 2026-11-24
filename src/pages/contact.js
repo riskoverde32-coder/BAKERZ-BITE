@@ -1,157 +1,114 @@
+import '../bb-pages.css'
+import { useEffect, useState } from 'react'
+import Hero from '../component/Hero'
+import ContactCards from '../component/ContactCards'
+import info from '../data/info.json'
 
-import { useState } from "react";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-} from "lucide-react";
+const EMPTY = { name: '', email: '', phone: '', subject: '', message: '' }
+const SUBJECTS = ['General question', 'Cake order', 'Merchandise', 'Something else']
 
+export default function Contact() {
+  const [form, setForm] = useState(EMPTY)
+  const [submitted, setSubmitted] = useState(false)
+  const [thanks, setThanks] = useState(false)
 
-function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  useEffect(() => {
+    if (!thanks) return
+    const t = setTimeout(() => setThanks(false), 4000)
+    return () => clearTimeout(t)
+  }, [thanks])
+
+  function update(e) {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    setSubmitted(true);
+    e.preventDefault()
+    setSubmitted(true)
+    if (!e.currentTarget.checkValidity()) return
+
+    // There is no server yet, so the message is kept in the browser
+    try {
+      const all = JSON.parse(localStorage.getItem('bbMessages') || '[]')
+      all.push({ ...form, sentAt: new Date().toISOString() })
+      localStorage.setItem('bbMessages', JSON.stringify(all))
+    } catch { /* storage blocked */ }
+
+    setForm(EMPTY)
+    setSubmitted(false)
+    setThanks(true)
   }
 
   return (
-    <section className="contact-section">
+    <section id="contact" className="bb">
+      <Hero
+        title="Contact Us"
+        motto="A question, a cake order, or just saying hello."
+        image="images/bakery-display.jpg"
+      />
 
-      {/* PAGE HEADING */}
-      <div className="contact-heading">
-        <span>Happy to serve you!</span>
-        <h1>Contact Us</h1>
-        <p>
-          Have a question or a special request?
-          We'd love to hear from you!
-        </p>
-      </div>
+      <div className="bb-container pad">
+        <div className="contact-layout">
+          <div>
+            <h2>Get in touch</h2>
+            <ContactCards />
 
-      <div className="contact-container">
+            <h3>Opening hours</h3>
+            <ul className="hours">
+              {info.hours.map((h) => (
+                <li key={h.days}><span>{h.days}</span><span>{h.time}</span></li>
+              ))}
+            </ul>
 
-        <div className="contact-info">
-
-          <h2>Let's Talk!</h2>
-
-          <p className="contact-intro">
-            Whether you're ordering a cake, planning
-            an event, or simply saying hello, our team
-            is always happy to help.
-          </p>
-
-         {/* <div className="contact-item">
-            <div className="contact-icon">
-              <MapPin />
-            </div>
-            <div>
-              <h3>Our Location</h3>
-              <p>Loca</p>
-            </div>
-          </div>*/}
-
-          <div className="contact-item">
-            <div className="contact-icon">
-              <Phone />
-            </div>
-            <div>
-              <h3>Phone Number</h3>
-              <p>+1 (123) 456-7890</p>
-            </div>
+            <img className="shop-photo" src="images/bakery-shop.jpg" alt="Inside the Bakerz Bite shop" />
           </div>
 
-          <div className="contact-item">
-            <div className="contact-icon">
-              <Mail />
+          <form className={`panel form ${submitted ? 'submitted' : ''}`} noValidate onSubmit={handleSubmit}>
+            <h2>Send a message</h2>
+            <div className="form-grid">
+              <div className="field">
+                <label htmlFor="cName">Name</label>
+                <input id="cName" name="name" type="text" required minLength={2} value={form.name} onChange={update} />
+                <small className="err">Please enter your name.</small>
+              </div>
+              <div className="field">
+                <label htmlFor="cEmail">Email</label>
+                <input id="cEmail" name="email" type="email" required value={form.email} onChange={update} />
+                <small className="err">Please enter a valid email.</small>
+              </div>
+              <div className="field">
+                <label htmlFor="cPhone">Phone (optional)</label>
+                <input id="cPhone" name="phone" type="tel" pattern="[0-9+()\-\s]{7,20}" value={form.phone} onChange={update} />
+                <small className="err">Use numbers, spaces, + ( ) or -.</small>
+              </div>
+              <div className="field">
+                <label htmlFor="cSubject">Subject</label>
+                <select id="cSubject" name="subject" required value={form.subject} onChange={update}>
+                  <option value="">Choose one</option>
+                  {SUBJECTS.map((s) => <option key={s}>{s}</option>)}
+                </select>
+                <small className="err">Please choose a subject.</small>
+              </div>
+              <div className="field full">
+                <label htmlFor="cMsg">Message</label>
+                <textarea id="cMsg" name="message" rows={5} required minLength={10} value={form.message} onChange={update} />
+                <small className="err">Please write at least 10 characters.</small>
+              </div>
+              <div className="field full">
+                <button type="submit" className="btn">Send message</button>
+              </div>
             </div>
-            <div>
-              <h3>Email Address</h3>
-              <p>BakerzBites@email.com</p>
-            </div>
-          </div>
-
-          <div className="contact-item">
-            <div className="contact-icon">
-              <Clock />
-            </div>
-            <div>
-              <h3>Opening Hours</h3>
-              <p>Monday - Saturday: 7 AM - 8 PM</p>
-              <p>Sunday: 8 AM - 5 PM</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="contact-form-container">
-
-          <h2>Send Us a Message</h2>
-          <p>Fill in the form below and get in touch with us.</p>
-
-          <form className="contact-form" onSubmit={handleSubmit}>
-
-            <div className="form-group">
-              <label htmlFor="contact-name">Your Name</label>
-              <input
-                id="contact-name"
-                type="text"
-                placeholder="Enter your name"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="contact-email">Email Address</label>
-              <input
-                id="contact-email"
-                type="email"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="contact-subject">Subject</label>
-              <input
-                id="contact-subject"
-                type="text"
-                placeholder="What is your message about?"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="contact-message">Your Message</label>
-              <textarea
-                id="contact-message"
-                rows="5"
-                placeholder="Write your message here..."
-                required
-              />
-            </div>
-
-            <button type="submit" className="send-button">
-              Send Message <Send size={18} />
-            </button>
-
-            {submitted && (
-              <p className="form-notice" role="status">
-                Your form has been submitted locally.
-                Connect a backend or email service to
-                receive messages.
+            {thanks && (
+              <p className="sent" role="status">
+                Thanks, we got your message and will reply soon.
+                <button type="button" className="sent-close" aria-label="Close" onClick={() => setThanks(false)}>
+                  <i className="bi bi-x-lg"></i>
+                </button>
               </p>
             )}
-
           </form>
-
         </div>
-
       </div>
-
     </section>
-  );
+  )
 }
-
-export default Contact;

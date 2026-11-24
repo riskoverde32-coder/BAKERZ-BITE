@@ -12,6 +12,7 @@ import {
 import About from "./pages/about";
 import Footer from "./pages/footer";
 import Contact from "./pages/contact";
+import Feedback from "./pages/feedback";
 import Gallery from "./pages/gallery";
 import biker from "./Assets/baker.png";
 import MenuPage from "./pages/menu";
@@ -23,6 +24,7 @@ const navLinks = [
   { name: "Gallery" },
   { name: "Offers" },
   { name: "About" },
+  { name: "Feedback" },
   { name: "Contact" },
   { name: "FAQ" },
 ];
@@ -215,6 +217,12 @@ function Home({setActivePage}) {
 function App() {
   const [activePage, setActivePage] =useState("Home");
 
+  // Start every page at the top, otherwise clicking a link while scrolled
+  // down leaves you looking at the footer of the new page
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activePage]);
+
   const [cartItems, setCartItems] = useState([]);
 
   const [cartOpen, setCartOpen] = useState(false);
@@ -274,6 +282,8 @@ const cartSubtotal = cartItems.reduce(
     pageContent = <Home setActivePage={setActivePage} />;
   } else if (activePage === "About") {
     pageContent = <About setActivePage={setActivePage} />;
+  } else if (activePage === "Feedback") {
+    pageContent = <Feedback />;
   } else if (activePage === "Contact") {
     pageContent = <Contact />;
   } else if (activePage === "Gallery"){

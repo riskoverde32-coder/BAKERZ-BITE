@@ -44,6 +44,7 @@ function Footer({ setActivePage }) {
           <button onClick={() => setActivePage("Menu")}>Menu</button>
           <button onClick={() => setActivePage("Gallery")}>Gallery</button>
           <button onClick={() => setActivePage("About")}>About</button>
+          <button onClick={() => setActivePage("Feedback")}>Feedback</button>
           <button onClick={() => setActivePage("Contact")}>Contact</button>
           <button onClick={() => setActivePage("FAQ")}>FAQ</button>
         </div>
