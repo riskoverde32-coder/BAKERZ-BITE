@@ -56,7 +56,7 @@ function CartWidget({
         {cartItems.length > 0 ? (
           cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
-              <img src={item.image} alt={item.name} />
+              <img src={`${process.env.PUBLIC_URL}${item.image}`} alt={item.name} />
 
               <div className="cart-item-info">
                 <h3>{item.name}</h3>

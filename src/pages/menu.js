@@ -271,7 +271,6 @@ function MenuPage({onAddToCart}) {
     setReviewNotice("Thank you! Your rating and review have been added.");
   }
 
-  // Calculate average rating
   function getAverageRating(reviews) {
     if (!reviews || reviews.length === 0) {
       return null;
@@ -294,7 +293,6 @@ function MenuPage({onAddToCart}) {
   return (
     <section className="menu-page">
 
-      {/* MENU HEADING */}
       <div className="menu-heading">
         <span>Fresh From Our Bakery</span>
         <h1>Explore Our Menu</h1>
@@ -354,7 +352,7 @@ function MenuPage({onAddToCart}) {
                 >
                   <div className="menu-product-image">
                     <img
-                      src={product.image}
+                      src={`${process.env.PUBLIC_URL}${product.image}`}
                       alt={product.name}
                     />
                     <span className="menu-product-category">
@@ -410,7 +408,7 @@ function MenuPage({onAddToCart}) {
 
       </div>
 
-      {/* PRODUCT DETAILS POPUP */}
+     
       {selectedProduct && (
         <div
           className="product-modal-overlay"
@@ -440,7 +438,7 @@ function MenuPage({onAddToCart}) {
             <div className="product-modal-details">
 
               <img
-                src={selectedProduct.image}
+                src={`${process.env.PUBLIC_URL}${selectedProduct.image}`}
                 alt={selectedProduct.name}
                 className="product-modal-image"
               />
@@ -496,7 +494,6 @@ function MenuPage({onAddToCart}) {
                 )}
               </div>
 
-              {/* REVIEW FORM */}
               <form
                 className="product-review-form"
                 onSubmit={handleReviewSubmit}

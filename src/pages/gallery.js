@@ -108,7 +108,7 @@ function Gallery() {
 
             <div className="gallery-image">
               <img
-                src={item.image}
+                src={`${process.env.PUBLIC_URL}${item.image}`}
                 alt={item.title}
               />
             </div>
