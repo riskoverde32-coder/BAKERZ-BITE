@@ -927,11 +927,13 @@
   .home-content h2 {
     font-size: 23px;
     margin-bottom: 15px;
+   color: rgba(0, 0, 0, 0.9);
   }
 
   .home-content p {
     font-size: 15px;
     line-height: 1.7;
+    color: rgba(0, 0, 0, 0.9);
   }
   .categories-section {
     padding: 40px 15px;
