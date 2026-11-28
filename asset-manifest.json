@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/BAKERZ-BITE/static/css/main.68a998d0.css",
-    "main.js": "/BAKERZ-BITE/static/js/main.e2c77cd9.js",
+    "main.css": "/BAKERZ-BITE/static/css/main.a4fd2ae7.css",
+    "main.js": "/BAKERZ-BITE/static/js/main.ab5afd23.js",
     "static/js/453.d45e4bf6.chunk.js": "/BAKERZ-BITE/static/js/453.d45e4bf6.chunk.js",
     "static/media/bake.png": "/BAKERZ-BITE/static/media/bake.a7c16bbf091e40c50101.png",
     "static/media/baker.png": "/BAKERZ-BITE/static/media/baker.82714b2e8aa6f3d1bc95.png",
     "index.html": "/BAKERZ-BITE/index.html",
-    "main.68a998d0.css.map": "/BAKERZ-BITE/static/css/main.68a998d0.css.map",
-    "main.e2c77cd9.js.map": "/BAKERZ-BITE/static/js/main.e2c77cd9.js.map",
+    "main.a4fd2ae7.css.map": "/BAKERZ-BITE/static/css/main.a4fd2ae7.css.map",
+    "main.ab5afd23.js.map": "/BAKERZ-BITE/static/js/main.ab5afd23.js.map",
     "453.d45e4bf6.chunk.js.map": "/BAKERZ-BITE/static/js/453.d45e4bf6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.68a998d0.css",
-    "static/js/main.e2c77cd9.js"
+    "static/css/main.a4fd2ae7.css",
+    "static/js/main.ab5afd23.js"
   ]
 }
