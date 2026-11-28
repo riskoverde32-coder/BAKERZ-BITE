@@ -42,15 +42,15 @@ function Contact() {
             is always happy to help.
           </p>
 
-         {/* <div className="contact-item">
+         <div className="contact-item">
             <div className="contact-icon">
               <MapPin />
             </div>
             <div>
               <h3>Our Location</h3>
-              <p>Loca</p>
+              <p>Nairobi</p>
             </div>
-          </div>*/}
+          </div>
 
           <div className="contact-item">
             <div className="contact-icon">
@@ -58,7 +58,7 @@ function Contact() {
             </div>
             <div>
               <h3>Phone Number</h3>
-              <p>+1 (123) 456-7890</p>
+              <p>+254-4567890</p>
             </div>
           </div>
 
@@ -68,7 +68,7 @@ function Contact() {
             </div>
             <div>
               <h3>Email Address</h3>
-              <p>BakerzBites@email.com</p>
+              <p>BakerzBites@gmail.com</p>
             </div>
           </div>
 

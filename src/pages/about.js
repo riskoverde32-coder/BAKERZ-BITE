@@ -38,7 +38,7 @@ function About({ setActivePage }) {
 
         <div className="about-story-image">
           <img
-            src="/images/about.png"
+            src={`${process.env.PUBLIC_URL}/images/about.png`}
             alt="The welcoming Bakerz Bite bakery and café"
           />
         </div>

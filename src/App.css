@@ -52,7 +52,10 @@
   cursor: pointer;
 }
 .App-nav ul li button:hover{
-  text-decoration: underline;
+  color: #B96820;
+}
+.App-nav ul li button:active{
+  color: blue;
 }
 .App-nav ul li button:focus{
   text-decoration: underline;

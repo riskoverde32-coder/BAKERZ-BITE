@@ -16,6 +16,7 @@ import Gallery from "./pages/gallery";
 import biker from "./Assets/baker.png";
 import MenuPage from "./pages/menu";
 import FAQ from "./pages/faq";
+import Sitemap from "./pages/sitemap";
 import CartWidget from "./component/cartwidget";
 const navLinks = [
   { name: "Home" },
@@ -160,7 +161,7 @@ function Home({setActivePage}) {
               onClick={() => setActivePage("Menu") }
             >
               <img
-                src={category.image}
+                src={`${process.env.PUBLIC_URL}${category.image}`}
                 alt={category.name}
               />
 
@@ -186,7 +187,7 @@ function Home({setActivePage}) {
       <div className="offer-card" key={offer.title}>
 
         <div className="offer-image">
-          <img src={offer.image} alt={offer.title} />
+          <img src={`${process.env.PUBLIC_URL}${offer.image}`} alt={offer.title} />
           <span className="offer-badge">
             {offer.badge}
           </span>
@@ -282,6 +283,8 @@ const cartSubtotal = cartItems.reduce(
     pageContent= <MenuPage onAddToCart={addToCart}/>
   }else if (activePage==="FAQ"){
     pageContent= <FAQ  setActivePage={setActivePage}/>
+  } else if (activePage==="SiteMap"){
+    pageContent= <Sitemap setActivePage={setActivePage}/>
   }
 
 
